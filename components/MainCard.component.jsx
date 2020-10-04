@@ -1,13 +1,11 @@
 import styles from '../styles/MainCard.module.css';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import Typography from '@material-ui/core/Typography';
+import { Card, Typography } from '@material-ui/core';
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
 import PhoneIcon from '@material-ui/icons/Phone';
 
 const useStyles = makeStyles((theme) => ({
   card: {
-    color: '#313131',
     zIndex: '1',
     position: 'relative',
     boxShadow: theme.shadows[3],
@@ -15,8 +13,8 @@ const useStyles = makeStyles((theme) => ({
   emailDiv: {
     display: 'flex',
     borderBottom: '1px solid #CAE7FE',
-    paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(3),
+    paddingTop: theme.spacing(4),
+    paddingBottom: theme.spacing(4),
     paddingLeft: theme.spacing(6),
     paddingRight: theme.spacing(6),
   },

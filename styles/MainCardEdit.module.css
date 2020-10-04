@@ -1,0 +1,6 @@
+.contentDiv + .contentDiv {
+  border-left: 1px solid #CAE7FE;
+  padding-left: 2rem;
+  margin-left: 2rem;
+  flex: 1 1;
+}
