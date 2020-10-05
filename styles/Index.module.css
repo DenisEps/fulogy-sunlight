@@ -2,6 +2,7 @@
   position: relative;
   z-index: 1;
   color: white;
+  margin-top: 1rem;
 }
 
 .profileTextH1 {
@@ -12,4 +13,14 @@
 .profileTextH2 {
   font-size: 14px !important;
   font-weight: 400 !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .profileTextH1 {
+  font-size: 14px !important;
+}
+
+.profileTextH2 {
+  font-size: 12px !important;
+}
 }

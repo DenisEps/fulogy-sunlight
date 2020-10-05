@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
     zIndex: '1',
     position: 'relative',
     boxShadow: theme.shadows[3],
+    borderRadius: '10px',
   },
   emailDiv: {
     display: 'flex',
@@ -17,6 +18,11 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(4),
     paddingLeft: theme.spacing(6),
     paddingRight: theme.spacing(6),
+    [theme.breakpoints.down('sm')]: {
+      paddingLeft: theme.spacing(2),
+      paddingTop: theme.spacing(2),
+      paddingBottom: theme.spacing(2),
+    },
   },
   phoneDiv: {
     display: 'flex',
@@ -24,11 +30,20 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(4),
     paddingLeft: theme.spacing(6),
     paddingRight: theme.spacing(6),
+    [theme.breakpoints.down('sm')]: {
+      paddingLeft: theme.spacing(2),
+      paddingTop: theme.spacing(2),
+      paddingBottom: theme.spacing(2),
+    },
   },
   label: {
     color: '#313131',
     fontSize: '18px',
     marginLeft: theme.spacing(3),
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '14px',
+      marginLeft: theme.spacing(1),
+    },
   },
   icon: {
     color: '#00BFA5',

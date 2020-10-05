@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
     zIndex: '1',
     position: 'relative',
     boxShadow: theme.shadows[3],
+    borderRadius: '10px',
   },
   form: {
     display: 'flex',
@@ -21,26 +22,47 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(4),
     zIndex: '1',
     position: 'relative',
+    [theme.breakpoints.down('sm')]: {
+      paddingTop: theme.spacing(1),
+      paddingBottom: theme.spacing(1),
+    },
   },
-  insideDiv: { display: 'flex', width: '100%' },
+  insideDiv: {
+    display: 'flex',
+    width: '100%',
+    [theme.breakpoints.down('sm')]: { flexDirection: 'column' },
+  },
   contentDiv: {
     display: 'flex',
+    flex: '1 1',
     alignItems: 'center',
     paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(3),
-    marginLeft: theme.spacing(5),
-    marginRight: theme.spacing(5),
+    [theme.breakpoints.down('sm')]: {
+      paddingTop: theme.spacing(2),
+      paddingBottom: theme.spacing(2),
+    },
   },
   icon: {
     color: theme.palette.primary.main,
+    [theme.breakpoints.down('sm')]: { display: 'none' },
   },
-  textInput: { marginLeft: theme.spacing(3) },
+  textInput: {
+    marginLeft: theme.spacing(3),
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: theme.spacing(0),
+    },
+  },
   button: {
     color: 'white',
     borderRadius: '36px',
     padding: '15px 26px',
     marginTop: theme.spacing(3),
     marginBottom: theme.spacing(2),
+    [theme.breakpoints.down('sm')]: {
+      marginTop: theme.spacing(0.5),
+      marginBottom: theme.spacing(1),
+    },
   },
 }));
 
@@ -67,15 +89,15 @@ export default function NameNav({ handleOpen }) {
     if (!phonere.test(String(phone.value))) {
       setPhoneError(true);
     } else if (
-      emailre.test(String(email.value).toLowerCase()) && 
-      namere.test(String(name.value).toLowerCase()) && 
-      phonere.test(String(phone.value))) {
-        setEmailError(false);
-        setNameError(false);
-        setPhoneError(false);
-        handleOpen(name.value, email.value, phone.value);
-      }
-
+      emailre.test(String(email.value).toLowerCase()) &&
+      namere.test(String(name.value).toLowerCase()) &&
+      phonere.test(String(phone.value))
+    ) {
+      setEmailError(false);
+      setNameError(false);
+      setPhoneError(false);
+      handleOpen(name.value, email.value, phone.value);
+    }
   };
 
   return (

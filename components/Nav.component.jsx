@@ -16,12 +16,19 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     color: theme.palette.getContrastText(deepPurple[500]),
     backgroundColor: deepPurple[500],
+    [theme.breakpoints.down('sm')]: {
+      height: '24px',
+      width: '24px',
+    },
   },
   name: {
     fontSize: '14px',
     marginLeft: theme.spacing(1),
     color: 'white',
     fontWeight: 600,
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
   },
   avatarDiv: {
     display: 'flex',
@@ -29,10 +36,17 @@ const useStyles = makeStyles((theme) => ({
     borderLeft: '1px solid white',
     paddingLeft: theme.spacing(2),
     zIndex: '1',
+    [theme.breakpoints.down('sm')]: {
+      paddingLeft: theme.spacing(1),
+    },
   },
   icon: {
     color: 'white',
     zIndex: '1',
+    [theme.breakpoints.down('sm')]: {
+      height: '24px',
+      marginRight: `-5px`
+    },
   },
 }));
 

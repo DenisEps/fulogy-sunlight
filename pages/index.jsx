@@ -1,5 +1,6 @@
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
 import { theme } from './theme';
 
 import Nav from '../components/Nav.component';
@@ -9,6 +10,8 @@ import MainCardEdit from '../components/MainCardEdit.component';
 import ModalComp from '../components/ModalComp.component';
 
 import styles from '../styles/Index.module.css';
+
+const classes = makeStyles({});
 
 function Main() {
   const [openModal, setOpenModal] = React.useState(false);
@@ -32,18 +35,20 @@ function Main() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(user)
+        body: JSON.stringify(user),
       });
     } catch (error) {
       console.log(error);
     }
   };
   const reset = () => {
-    console.log('reset');
+    setEditState(false);
+    setOpenModal(false);
+    setSaveState(false);
   };
   const handleToggle = () => {
     setEditState(!editState);
-  }
+  };
 
   return (
     <>

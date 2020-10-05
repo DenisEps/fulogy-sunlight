@@ -1,6 +1,21 @@
 .contentDiv + .contentDiv {
   border-left: 1px solid #CAE7FE;
   padding-left: 2rem;
-  margin-left: 2rem;
   flex: 1 1;
+  margin-right: 2rem;
+}
+
+.contentDiv:first-child {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .contentDiv {
+  margin-left: 0.5rem !important;
+  margin-right: 0.5rem !important;
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+  border-left: none !important;
+}
 }

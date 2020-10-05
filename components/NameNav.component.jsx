@@ -19,12 +19,17 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     boxShadow: theme.shadows[3],
+    borderRadius: '10px',
   },
   avatar: {
     color: theme.palette.getContrastText(deepPurple[500]),
     backgroundColor: deepPurple[500],
     width: theme.spacing(7),
     height: theme.spacing(7),
+    [theme.breakpoints.down('sm')]: {
+      width: '40px',
+      height: '40px',
+    },
   },
   avatarDiv: {
     display: 'flex',
@@ -37,6 +42,10 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '30px',
     fontWeight: '600',
     marginLeft: theme.spacing(4),
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '14px;',
+      marginLeft: theme.spacing(1),
+    },
   },
   editDiv: {
     cursor: 'pointer',
@@ -47,6 +56,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '14px',
     marginRight: '3px',
     color: 'white',
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
   },
 }));
 

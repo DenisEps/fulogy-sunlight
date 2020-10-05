@@ -8,6 +8,10 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    [theme.breakpoints.down('sm')]: {
+      borderTopRightRadius: '10px',
+      borderTopLeftRadius: '10px',
+    },
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
@@ -19,29 +23,53 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-around',
     alignItems: 'center',
     minHeight: '318px',
-    minWidth: '600px',
+    width: '600px',
+    [theme.breakpoints.down('sm')]: {
+      borderTopRightRadius: '25px',
+      borderTopLeftRadius: '25px',
+      position: 'fixed',
+      bottom: '0',
+      width: '100vw',
+      minHeight: '200px',
+    },
   },
   title: {
     color: '#313131',
     opacity: '0.7',
     fontSize: '24px',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '18px',
+      marginBottom: theme.spacing(2),
+      marginTop: theme.spacing(3),
+    },
   },
   buttonSave: {
     minWidth: '202px',
     color: 'white',
     borderRadius: '36px',
     padding: '15px 26px',
+    [theme.breakpoints.down('sm')]: {
+      marginBottom: theme.spacing(2),
+      marginTop: theme.spacing(3),
+    },
   },
   buttonCancel: {
     minWidth: '202px',
     color: theme.palette.primary.main,
     borderRadius: '36px',
     padding: '15px 26px',
+    [theme.breakpoints.down('sm')]: {
+      marginBottom: theme.spacing(6),
+      marginTop: theme.spacing(2),
+    },
   },
   closeIcon: {
     color: '#828282',
     alignSelf: 'flex-end',
     cursor: 'pointer',
+    [theme.breakpoints.down('sm')]: {
+      // display: 'none',
+    },
   },
 }));
 
@@ -64,7 +92,7 @@ export default function ModalComp({
       aria-describedby="save-modal-description"
       className={classes.modal}
       open={open}
-      onClose={handleClose}
+      onClose={handleReset}
       closeAfterTransition
       BackdropComponent={Backdrop}
       BackdropProps={{
