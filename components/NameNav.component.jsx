@@ -62,7 +62,7 @@ export default function NameNav({ editState, toggleEditState }) {
         </Typography>
       </div>
       <div className={classes.editDiv}>
-        {editState ? (
+        {!editState ? (
           <>
             <Typography onClick={toggleEditState} className={classes.editText}>
               РЕДАКТИРОВАТЬ

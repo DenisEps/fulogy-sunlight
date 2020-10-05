@@ -27,6 +27,13 @@ function Main() {
     try {
       localStorage.setItem('user', JSON.stringify(user));
       setSaveState(true);
+      fetch('/api/posts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(user)
+      });
     } catch (error) {
       console.log(error);
     }

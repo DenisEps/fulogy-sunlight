@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
   card: {
     zIndex: '1',
     position: 'relative',
+    boxShadow: theme.shadows[3],
   },
   form: {
     display: 'flex',
@@ -20,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(4),
     zIndex: '1',
     position: 'relative',
-    boxShadow: theme.shadows[3],
   },
   insideDiv: { display: 'flex', width: '100%' },
   contentDiv: {
@@ -40,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '36px',
     padding: '15px 26px',
     marginTop: theme.spacing(3),
+    marginBottom: theme.spacing(2),
   },
 }));
 
