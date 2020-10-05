@@ -1,7 +1,7 @@
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import { theme } from './theme';
+import { theme } from '../styles/theme';
 
 import Nav from '../components/Nav.component';
 import NameNav from '../components/NameNav.component';
