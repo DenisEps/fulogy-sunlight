@@ -22,8 +22,8 @@ export default function BackgroundSvg() {
             y2="235.001"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#2196F3" />
-            <stop offset="1" stop-color="#1EC3AF" />
+            <stop stopColor="#2196F3" />
+            <stop offset="1" stopColor="#1EC3AF" />
           </linearGradient>
         </defs>
       </svg>

@@ -6,10 +6,20 @@ import Nav from '../components/Nav.component';
 import NameNav from '../components/NameNav.component';
 import MainCard from '../components/MainCard.component';
 import MainCardEdit from '../components/MainCardEdit.component';
+import ModalComp from '../components/ModalComp.component';
 
 import styles from '../styles/Index.module.css';
 
 function Main() {
+  const [openModal, setOpenModal] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpenModal(true);
+  };
+  const handleClose = () => {
+    setOpenModal(false);
+  };
+
   return (
     <>
       <Container>
@@ -30,7 +40,8 @@ function Main() {
         </div>
         <NameNav />
         <MainCard />
-        <MainCardEdit />
+        <MainCardEdit handleOpen={handleOpen} />
+        <ModalComp open={openModal} handleClose={handleClose} />
       </Container>
     </>
   );
