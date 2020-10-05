@@ -45,8 +45,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ModalComp({ open, handleClose }) {
+export default function ModalComp({
+  open,
+  handleClose,
+  handleFinalSave,
+  saveState,
+  handleReset
+}) {
   const classes = useStyles();
+
+  const handleSave = () => {
+    handleFinalSave();
+  };
+
   return (
     <Modal
       aria-labelledby="save-modal-title"
@@ -62,26 +73,48 @@ export default function ModalComp({ open, handleClose }) {
     >
       <Fade in={open}>
         <div className={classes.paper}>
-          <CloseIcon onClick={handleClose} className={classes.closeIcon} />
-          <Typography className={classes.title}>
-            Сохранить изменения?
-          </Typography>
-          <Button
-            className={classes.buttonSave}
-            variant="contained"
-            color="primary"
-            disableElevation
-          >
-            Сохранить
-          </Button>
-          <Button
-            className={classes.buttonCancel}
-            variant="outlined"
-            color="primary"
-            disableElevation
-          >
-            Не сохранять
-          </Button>
+          {!saveState ? (
+            <>
+              <CloseIcon onClick={handleClose} className={classes.closeIcon} />
+              <Typography className={classes.title}>
+                Сохранить изменения?
+              </Typography>
+              <Button
+                className={classes.buttonSave}
+                variant="contained"
+                color="primary"
+                disableElevation
+                onClick={handleSave}
+              >
+                Сохранить
+              </Button>
+              <Button
+                className={classes.buttonCancel}
+                variant="outlined"
+                color="primary"
+                disableElevation
+                onClick={handleClose}
+              >
+                Не сохранять
+              </Button>
+            </>
+          ) : (
+            <>
+              <CloseIcon onClick={handleReset} className={classes.closeIcon} />
+              <Typography className={classes.title}>
+                Данные успешно сохранены
+              </Typography>
+              <Button
+                className={classes.buttonSave}
+                variant="contained"
+                color="primary"
+                disableElevation
+                onClick={handleReset}
+              >
+                Хорошо
+              </Button>
+            </>
+          )}
         </div>
       </Fade>
     </Modal>

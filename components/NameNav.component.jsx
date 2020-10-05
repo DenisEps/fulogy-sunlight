@@ -4,6 +4,7 @@ import Card from '@material-ui/core/Card';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import EditIcon from '@material-ui/icons/Edit';
+import ClearIcon from '@material-ui/icons/Clear';
 import { deepPurple } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
@@ -49,8 +50,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NameNav () {
+export default function NameNav({ editState, toggleEditState }) {
   const classes = useStyles();
+
   return (
     <Card className={classes.card}>
       <div className={classes.avatarDiv}>
@@ -60,8 +62,27 @@ export default function NameNav () {
         </Typography>
       </div>
       <div className={classes.editDiv}>
-        <Typography className={classes.editText}>РЕДАКТИРОВАТЬ</Typography>
-        <EditIcon style={{fontSize: '18px', color: 'white'}} />
+        {editState ? (
+          <>
+            <Typography onClick={toggleEditState} className={classes.editText}>
+              РЕДАКТИРОВАТЬ
+            </Typography>
+            <EditIcon
+              onClick={toggleEditState}
+              style={{ fontSize: '18px', color: 'white' }}
+            />
+          </>
+        ) : (
+          <>
+            <Typography onClick={toggleEditState} className={classes.editText}>
+              ЗАКРЫТЬ
+            </Typography>
+            <ClearIcon
+              onClick={toggleEditState}
+              style={{ fontSize: '18px', color: 'white' }}
+            />{' '}
+          </>
+        )}
       </div>
     </Card>
   );

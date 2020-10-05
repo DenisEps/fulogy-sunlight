@@ -8,6 +8,10 @@ import PhoneIcon from '@material-ui/icons/Phone';
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 
 const useStyles = makeStyles((theme) => ({
+  card: {
+    zIndex: '1',
+    position: 'relative',
+  },
   form: {
     display: 'flex',
     flexDirection: 'column',
@@ -65,13 +69,16 @@ export default function NameNav({ handleOpen }) {
       emailre.test(String(email.value).toLowerCase()) && 
       namere.test(String(name.value).toLowerCase()) && 
       phonere.test(String(phone.value))) {
-        handleOpen();
+        setEmailError(false);
+        setNameError(false);
+        setPhoneError(false);
+        handleOpen(name.value, email.value, phone.value);
       }
 
   };
 
   return (
-    <Card>
+    <Card className={classes.card}>
       <form onSubmit={(e) => handleSave(e)} className={classes.form}>
         <div className={classes.insideDiv}>
           <div

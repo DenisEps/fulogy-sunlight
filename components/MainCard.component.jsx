@@ -20,8 +20,8 @@ const useStyles = makeStyles((theme) => ({
   },
   phoneDiv: {
     display: 'flex',
-    paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(3),
+    paddingTop: theme.spacing(4),
+    paddingBottom: theme.spacing(4),
     paddingLeft: theme.spacing(6),
     paddingRight: theme.spacing(6),
   },

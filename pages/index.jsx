@@ -12,13 +12,31 @@ import styles from '../styles/Index.module.css';
 
 function Main() {
   const [openModal, setOpenModal] = React.useState(false);
+  const [user, setUser] = React.useState({});
+  const [saveState, setSaveState] = React.useState(false);
+  const [editState, setEditState] = React.useState(false);
 
-  const handleOpen = () => {
+  const handleOpen = (name, email, phone) => {
+    setUser({ name, email, phone });
     setOpenModal(true);
   };
   const handleClose = () => {
     setOpenModal(false);
   };
+  const handleFinalSave = () => {
+    try {
+      localStorage.setItem('user', JSON.stringify(user));
+      setSaveState(true);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const reset = () => {
+    console.log('reset');
+  };
+  const handleToggle = () => {
+    setEditState(!editState);
+  }
 
   return (
     <>
@@ -38,10 +56,19 @@ function Main() {
             Главная/Личный профиль
           </Typography>
         </div>
-        <NameNav />
-        <MainCard />
-        <MainCardEdit handleOpen={handleOpen} />
-        <ModalComp open={openModal} handleClose={handleClose} />
+        <NameNav toggleEditState={handleToggle} editState={editState} />
+        {editState ? (
+          <MainCardEdit handleOpen={handleOpen} />
+        ) : (
+          <MainCard editState={editState} />
+        )}
+        <ModalComp
+          open={openModal}
+          handleClose={handleClose}
+          handleFinalSave={handleFinalSave}
+          saveState={saveState}
+          handleReset={reset}
+        />
       </Container>
     </>
   );
