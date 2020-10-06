@@ -29,7 +29,7 @@ export default function BackgroundSvg() {
     <div className={styles.root}>
       <svg
         width="100vw"
-        viewBox="0 0 1481 1400"
+        viewBox="0 0 1481 800"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
