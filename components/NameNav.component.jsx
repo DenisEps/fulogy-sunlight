@@ -62,16 +62,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NameNav({ editState, toggleEditState }) {
+export default function NameNav({ editState, toggleEditState, user }) {
   const classes = useStyles();
 
   return (
     <Card className={classes.card}>
       <div className={classes.avatarDiv}>
         <Avatar className={classes.avatar}>H</Avatar>
-        <Typography className={classes.name}>
-          Иванова Анна Михайловна
-        </Typography>
+        <Typography className={classes.name}>{user.name}</Typography>
       </div>
       <div className={classes.editDiv}>
         {!editState ? (

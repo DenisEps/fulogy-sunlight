@@ -50,15 +50,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Nav() {
+export default function Nav({user}) {
+  const {name} = user;
   const classes = useStyles();
+  const [navName, setNavName] = React.useState();
+
+  React.useEffect(() => {
+    setNavName(`${name.split(' ')[0]} ${name.split(' ')[1].split('')[0]}.`);
+  }, [user])
 
   return (
     <div className={classes.root}>
       <NotificationsNoneIcon className={classes.icon} fontSize="large" />
       <div className={classes.avatarDiv}>
         <Avatar className={classes.avatar}>H</Avatar>
-        <Typography className={classes.name}>Иванова А.</Typography>
+        <Typography className={classes.name}>{navName}</Typography>
       </div>
     </div>
   );

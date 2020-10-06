@@ -11,13 +11,24 @@ import ModalComp from '../components/ModalComp.component';
 
 import styles from '../styles/Index.module.css';
 
-const classes = makeStyles({});
+// const classes = makeStyles({});
 
 function Main() {
   const [openModal, setOpenModal] = React.useState(false);
   const [user, setUser] = React.useState({});
+  const [localUser, setLocalUser] = React.useState({
+    name: 'Иванова Анна Михайловна',
+    email: 'ivanova@mail.ru',
+    phone: 'Укажите номер телефона',
+  });
   const [saveState, setSaveState] = React.useState(false);
   const [editState, setEditState] = React.useState(false);
+
+  React.useEffect(() => {
+    if (localStorage.getItem('user')) {
+      setLocalUser(JSON.parse(localStorage.getItem('user')));
+    };
+  }, []);
 
   const handleOpen = (name, email, phone) => {
     setUser({ name, email, phone });
@@ -37,6 +48,7 @@ function Main() {
         },
         body: JSON.stringify(user),
       });
+      setLocalUser(user);
     } catch (error) {
       console.log(error);
     }
@@ -53,7 +65,7 @@ function Main() {
   return (
     <>
       <Container>
-        <Nav />
+        <Nav user={localUser} />
         <div className={styles.profileText}>
           <Typography
             style={{ marginBottom: theme.spacing(1) }}
@@ -68,11 +80,15 @@ function Main() {
             Главная/Личный профиль
           </Typography>
         </div>
-        <NameNav toggleEditState={handleToggle} editState={editState} />
+        <NameNav
+          toggleEditState={handleToggle}
+          editState={editState}
+          user={localUser}
+        />
         {editState ? (
           <MainCardEdit handleOpen={handleOpen} />
         ) : (
-          <MainCard editState={editState} />
+          <MainCard editState={editState} user={localUser} />
         )}
         <ModalComp
           open={openModal}

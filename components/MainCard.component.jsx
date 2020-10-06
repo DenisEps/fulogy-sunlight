@@ -50,19 +50,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NameNav() {
+export default function MainCard({ user }) {
   const classes = useStyles();
   return (
     <Card className={classes.card}>
       <div className={classes.emailDiv}>
         <AlternateEmailIcon className={classes.icon} />
-        <Typography className={classes.label}>ivanova@mail.ru</Typography>
+        <Typography className={classes.label}>{user.email}</Typography>
       </div>
       <div className={classes.phoneDiv}>
         <PhoneIcon className={classes.icon} />
-        <Typography className={classes.label}>
-          Укажите номер телефона
-        </Typography>
+        <Typography className={classes.label}>{user.phone}</Typography>
       </div>
     </Card>
   );
